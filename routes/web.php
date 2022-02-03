@@ -1,14 +1,12 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
-
-// Route::get('/', 'HomeController@index') -> name('index');
-Route::get('/', function () {
-    return view('new.pages.index');
-});
 
 
 // Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'GuestController@index') -> name('index');
+
+Route::post('/login', 'Auth\LoginController@login') -> name('login');
+Route::post('/register', 'Auth\RegisterController@register') -> name('register');
+
+Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
